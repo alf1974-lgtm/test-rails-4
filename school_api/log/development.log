@@ -1,0 +1,357 @@
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='SchoolApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-16 21:40:16.632354', '2026-07-16 21:40:16.632358') RETURNING "key" /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchoolApi'*/[0m
+Migrating to CreateUsers (20260716213947)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "role" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260716213947') RETURNING "version" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+Migrating to CreateDepartments (20260716213951)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260716213951') RETURNING "version" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+Migrating to CreateCourses (20260716213952)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "department_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4e7d7b190d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+) /*application='SchoolApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_courses_on_department_id" ON "courses" ("department_id") /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260716213952') RETURNING "version" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+Migrating to CreateSemesters (20260716213953)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "semesters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "start_date" date, "end_date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260716213953') RETURNING "version" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+Migrating to CreateClassSessions (20260716213956)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "class_sessions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "semester_id" integer NOT NULL, "teacher_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_74724573e6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_7aef389ef0"
+FOREIGN KEY ("semester_id")
+  REFERENCES "semesters" ("id")
+) /*application='SchoolApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_class_sessions_on_course_id" ON "class_sessions" ("course_id") /*application='SchoolApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_class_sessions_on_semester_id" ON "class_sessions" ("semester_id") /*application='SchoolApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_class_sessions_on_teacher_id" ON "class_sessions" ("teacher_id") /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260716213956') RETURNING "version" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+Migrating to CreateEnrollments (20260716213959)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "enrollments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "class_session_id" integer NOT NULL, "student_id" integer, "grade" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ff2975da8f"
+FOREIGN KEY ("class_session_id")
+  REFERENCES "class_sessions" ("id")
+) /*application='SchoolApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_enrollments_on_class_session_id" ON "enrollments" ("class_session_id") /*application='SchoolApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_enrollments_on_student_id" ON "enrollments" ("student_id") /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260716213959') RETURNING "version" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchoolApi'*/[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Load (0.3ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments" /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Load (0.2ms)[0m  [1m[34mSELECT "class_sessions".* FROM "class_sessions" /*application='SchoolApi'*/[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" /*application='SchoolApi'*/[0m
+  [1m[36mSemester Load (0.2ms)[0m  [1m[34mSELECT "semesters".* FROM "semesters" /*application='SchoolApi'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."name" = 'English' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ('English', '2026-07-16 21:41:13.909913', '2026-07-16 21:41:13.909913') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."name" = 'Math' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ('Math', '2026-07-16 21:41:13.921375', '2026-07-16 21:41:13.921375') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."name" = 'Science' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ('Science', '2026-07-16 21:41:13.928133', '2026-07-16 21:41:13.928133') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."name" = 'History' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ('History', '2026-07-16 21:41:13.935039', '2026-07-16 21:41:13.935039') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."name" = 'Computer Science' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ('Computer Science', '2026-07-16 21:41:13.941528', '2026-07-16 21:41:13.941528') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.8ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('English 101', 'Introduction to college writing', 1, '2026-07-16 21:41:13.956312', '2026-07-16 21:41:13.956312') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.8ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('American Literature', 'Survey of American literature', 1, '2026-07-16 21:41:13.961780', '2026-07-16 21:41:13.961780') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.7ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('Calculus I', 'Limits, derivatives, and integrals', 2, '2026-07-16 21:41:13.966831', '2026-07-16 21:41:13.966831') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.8ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('Linear Algebra', 'Vectors, matrices, and linear maps', 2, '2026-07-16 21:41:13.971597', '2026-07-16 21:41:13.971597') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.7ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('Biology 101', 'Fundamentals of biology', 3, '2026-07-16 21:41:13.976535', '2026-07-16 21:41:13.976535') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (2.0ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('Chemistry 101', 'Introductory chemistry', 3, '2026-07-16 21:41:13.981223', '2026-07-16 21:41:13.981223') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.7ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('World History', 'Survey of world history to 1500', 4, '2026-07-16 21:41:13.986255', '2026-07-16 21:41:13.986255') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.6ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('US History', 'United States history from 1776', 4, '2026-07-16 21:41:13.991127', '2026-07-16 21:41:13.991127') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.6ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('Intro to Programming', 'Programming fundamentals using Ruby', 5, '2026-07-16 21:41:13.995830', '2026-07-16 21:41:13.995830') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mCourse Create (1.7ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description", "department_id", "created_at", "updated_at") VALUES ('Data Structures', 'Arrays, linked lists, trees, and graphs', 5, '2026-07-16 21:41:14.000653', '2026-07-16 21:41:14.000653') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mSemester Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "semesters" WHERE "semesters"."name" = 'Fall 2026' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mSemester Create (0.3ms)[0m  [1m[32mINSERT INTO "semesters" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ('Fall 2026', '2026-09-01', '2026-12-20', '2026-07-16 21:41:14.013481', '2026-07-16 21:41:14.013481') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mSemester Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "semesters" WHERE "semesters"."name" = 'Spring 2027' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mSemester Create (0.2ms)[0m  [1m[32mINSERT INTO "semesters" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ('Spring 2027', '2027-01-15', '2027-05-10', '2026-07-16 21:41:14.020341', '2026-07-16 21:41:14.020341') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'alice.monroe@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Dr. Alice Monroe', 'alice.monroe@school.edu', 'teacher', '2026-07-16 21:41:14.060619', '2026-07-16 21:41:14.060619') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (3.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'bob.chen@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Prof. Bob Chen', 'bob.chen@school.edu', 'teacher', '2026-07-16 21:41:14.069270', '2026-07-16 21:41:14.069270') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'carol.davis@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Dr. Carol Davis', 'carol.davis@school.edu', 'teacher', '2026-07-16 21:41:14.075648', '2026-07-16 21:41:14.075648') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'david.kim@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Prof. David Kim', 'david.kim@school.edu', 'teacher', '2026-07-16 21:41:14.083314', '2026-07-16 21:41:14.083314') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'eva.rosenberg@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Dr. Eva Rosenberg', 'eva.rosenberg@school.edu', 'teacher', '2026-07-16 21:41:14.091107', '2026-07-16 21:41:14.091107') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'sam.torres@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Sam Torres', 'sam.torres@school.edu', 'student', '2026-07-16 21:41:14.097375', '2026-07-16 21:41:14.097375') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jamie.lee@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Jamie Lee', 'jamie.lee@school.edu', 'student', '2026-07-16 21:41:14.105159', '2026-07-16 21:41:14.105159') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'morgan.patel@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Morgan Patel', 'morgan.patel@school.edu', 'student', '2026-07-16 21:41:14.112581', '2026-07-16 21:41:14.112581') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'riley.johnson@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Riley Johnson', 'riley.johnson@school.edu', 'student', '2026-07-16 21:41:14.118597', '2026-07-16 21:41:14.118597') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'casey.williams@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Casey Williams', 'casey.williams@school.edu', 'student', '2026-07-16 21:41:14.125845', '2026-07-16 21:41:14.125845') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jordan.smith@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Jordan Smith', 'jordan.smith@school.edu', 'student', '2026-07-16 21:41:14.132213', '2026-07-16 21:41:14.132213') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'taylor.brown@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Taylor Brown', 'taylor.brown@school.edu', 'student', '2026-07-16 21:41:14.139749', '2026-07-16 21:41:14.139749') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mUser Exists? (4.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'alex.garcia@school.edu' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "role", "created_at", "updated_at") VALUES ('Alex Garcia', 'alex.garcia@school.edu', 'student', '2026-07-16 21:41:14.148887', '2026-07-16 21:41:14.148887') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.6ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (1, 1, 1, '2026-07-16 21:41:14.157072', '2026-07-16 21:41:14.157072') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.6ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (3, 1, 2, '2026-07-16 21:41:14.161821', '2026-07-16 21:41:14.161821') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.5ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (5, 1, 3, '2026-07-16 21:41:14.166482', '2026-07-16 21:41:14.166482') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.5ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (7, 1, 4, '2026-07-16 21:41:14.170951', '2026-07-16 21:41:14.170951') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.5ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (9, 1, 5, '2026-07-16 21:41:14.175565', '2026-07-16 21:41:14.175565') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.5ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (2, 2, 1, '2026-07-16 21:41:14.180040', '2026-07-16 21:41:14.180040') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.6ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (4, 2, 2, '2026-07-16 21:41:14.184493', '2026-07-16 21:41:14.184493') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.6ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (6, 2, 3, '2026-07-16 21:41:14.188990', '2026-07-16 21:41:14.188990') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.7ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (8, 2, 4, '2026-07-16 21:41:14.215789', '2026-07-16 21:41:14.215789') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Create (1.6ms)[0m  [1m[32mINSERT INTO "class_sessions" ("course_id", "semester_id", "teacher_id", "created_at", "updated_at") VALUES (10, 2, 5, '2026-07-16 21:41:14.220709', '2026-07-16 21:41:14.220709') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 6 AND "enrollments"."class_session_id" = 5 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (5, 6, 'A', '2026-07-16 21:41:14.235437', '2026-07-16 21:41:14.235437') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 6 AND "enrollments"."class_session_id" = 2 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (2, 6, 'B+', '2026-07-16 21:41:14.243580', '2026-07-16 21:41:14.243580') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 6 AND "enrollments"."class_session_id" = 1 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (1, 6, 'B', '2026-07-16 21:41:14.250942', '2026-07-16 21:41:14.250942') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 6 AND "enrollments"."class_session_id" = 10 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (10, 6, NULL, '2026-07-16 21:41:14.257258', '2026-07-16 21:41:14.257258') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 6 AND "enrollments"."class_session_id" = 7 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (7, 6, NULL, '2026-07-16 21:41:14.264593', '2026-07-16 21:41:14.264593') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 7 AND "enrollments"."class_session_id" = 1 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (1, 7, 'A-', '2026-07-16 21:41:14.271615', '2026-07-16 21:41:14.271615') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 7 AND "enrollments"."class_session_id" = 4 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (4, 7, 'A', '2026-07-16 21:41:14.277838', '2026-07-16 21:41:14.277838') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 7 AND "enrollments"."class_session_id" = 6 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (6, 7, NULL, '2026-07-16 21:41:14.284722', '2026-07-16 21:41:14.284722') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 7 AND "enrollments"."class_session_id" = 9 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (9, 7, NULL, '2026-07-16 21:41:14.291179', '2026-07-16 21:41:14.291179') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 8 AND "enrollments"."class_session_id" = 3 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (3, 8, 'A', '2026-07-16 21:41:14.298269', '2026-07-16 21:41:14.298269') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 8 AND "enrollments"."class_session_id" = 2 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (2, 8, 'A-', '2026-07-16 21:41:14.306149', '2026-07-16 21:41:14.306149') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 8 AND "enrollments"."class_session_id" = 8 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (8, 8, NULL, '2026-07-16 21:41:14.312243', '2026-07-16 21:41:14.312243') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 8 AND "enrollments"."class_session_id" = 7 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (7, 8, NULL, '2026-07-16 21:41:14.318474', '2026-07-16 21:41:14.318474') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 9 AND "enrollments"."class_session_id" = 1 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (1, 9, 'C+', '2026-07-16 21:41:14.324785', '2026-07-16 21:41:14.324785') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 9 AND "enrollments"."class_session_id" = 5 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (5, 9, 'B-', '2026-07-16 21:41:14.331000', '2026-07-16 21:41:14.331000') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 9 AND "enrollments"."class_session_id" = 4 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (4, 9, 'B', '2026-07-16 21:41:14.337344', '2026-07-16 21:41:14.337344') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 9 AND "enrollments"."class_session_id" = 10 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (10, 9, NULL, '2026-07-16 21:41:14.343853', '2026-07-16 21:41:14.343853') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 10 AND "enrollments"."class_session_id" = 3 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (3, 10, 'B+', '2026-07-16 21:41:14.366886', '2026-07-16 21:41:14.366886') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 10 AND "enrollments"."class_session_id" = 4 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (4, 10, 'B', '2026-07-16 21:41:14.374711', '2026-07-16 21:41:14.374711') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 10 AND "enrollments"."class_session_id" = 8 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.4ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (8, 10, NULL, '2026-07-16 21:41:14.382595', '2026-07-16 21:41:14.382595') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 10 AND "enrollments"."class_session_id" = 9 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (9, 10, NULL, '2026-07-16 21:41:14.388917', '2026-07-16 21:41:14.388917') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 11 AND "enrollments"."class_session_id" = 2 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (2, 11, 'A', '2026-07-16 21:41:14.396260', '2026-07-16 21:41:14.396260') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 11 AND "enrollments"."class_session_id" = 5 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (5, 11, 'A-', '2026-07-16 21:41:14.402486', '2026-07-16 21:41:14.402486') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 11 AND "enrollments"."class_session_id" = 7 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (7, 11, NULL, '2026-07-16 21:41:14.410032', '2026-07-16 21:41:14.410032') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 11 AND "enrollments"."class_session_id" = 10 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (10, 11, NULL, '2026-07-16 21:41:14.417229', '2026-07-16 21:41:14.417229') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 12 AND "enrollments"."class_session_id" = 1 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (1, 12, 'B+', '2026-07-16 21:41:14.423419', '2026-07-16 21:41:14.423419') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 12 AND "enrollments"."class_session_id" = 3 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (3, 12, 'B', '2026-07-16 21:41:14.430134', '2026-07-16 21:41:14.430134') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 12 AND "enrollments"."class_session_id" = 6 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (6, 12, NULL, '2026-07-16 21:41:14.437113', '2026-07-16 21:41:14.437113') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 12 AND "enrollments"."class_session_id" = 8 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (8, 12, NULL, '2026-07-16 21:41:14.443111', '2026-07-16 21:41:14.443111') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 13 AND "enrollments"."class_session_id" = 4 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (4, 13, 'A-', '2026-07-16 21:41:14.450772', '2026-07-16 21:41:14.450772') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 13 AND "enrollments"."class_session_id" = 5 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (5, 13, 'B+', '2026-07-16 21:41:14.456995', '2026-07-16 21:41:14.456995') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 13 AND "enrollments"."class_session_id" = 9 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (9, 13, NULL, '2026-07-16 21:41:14.463095', '2026-07-16 21:41:14.463095') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = 13 AND "enrollments"."class_session_id" = 10 LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Create (0.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("class_session_id", "student_id", "grade", "created_at", "updated_at") VALUES (10, 13, NULL, '2026-07-16 21:41:14.469165', '2026-07-16 21:41:14.469165') RETURNING "id" /*application='SchoolApi'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchoolApi'*/[0m
+  [1m[36mDepartment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "departments" /*application='SchoolApi'*/[0m
+  [1m[36mCourse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses" /*application='SchoolApi'*/[0m
+  [1m[36mSemester Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "semesters" /*application='SchoolApi'*/[0m
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" = 'teacher' /*application='SchoolApi'*/[0m
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" = 'student' /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_sessions" /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "enrollments" /*application='SchoolApi'*/[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id", "users"."name" FROM "users" WHERE "users"."role" = 'student' /*application='SchoolApi'*/[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'Sam Torres' LIMIT 1 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "enrollments" WHERE "enrollments"."student_id" = 6 /*application='SchoolApi'*/[0m
+  [1m[36mEnrollment Load (0.1ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments" WHERE "enrollments"."student_id" = 6 /*application='SchoolApi'*/[0m
+  [1m[36mClassSession Load (0.2ms)[0m  [1m[34mSELECT "class_sessions".* FROM "class_sessions" WHERE "class_sessions"."id" IN (5, 2, 1, 10, 7) /*application='SchoolApi'*/[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" IN (1, 3, 9, 4, 10) /*application='SchoolApi'*/[0m
+  [1m[36mSemester Load (0.2ms)[0m  [1m[34mSELECT "semesters".* FROM "semesters" WHERE "semesters"."id" IN (1, 2) /*application='SchoolApi'*/[0m
